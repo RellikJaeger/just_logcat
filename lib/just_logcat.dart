@@ -8,12 +8,12 @@ class Log {
     developer.log('', name: 'Logcat');
     stackTrace != null
         ? developer.log(
-            tag + ': \n\n' + message + '\n\n---',
+            '$tag: \n\n$message\n\n---',
             name: 'Info',
             stackTrace: stackTrace,
           )
         : developer.log(
-            tag + ': \n\n' + message + '\n\n---',
+      '$tag: \n\n$message\n\n---',
             name: 'Info',
           );
   }
@@ -22,12 +22,12 @@ class Log {
     developer.log('', name: 'Logcat');
     stackTrace != null
         ? developer.log(
-            tag + ': \n\n' + message + '\n\n---',
+      '$tag: \n\n$message\n\n---',
             name: 'Debug',
             stackTrace: stackTrace,
           )
         : developer.log(
-            tag + ': \n\n' + message + '\n\n---',
+      '$tag: \n\n$message\n\n---',
             name: 'Debug',
           );
   }
@@ -36,15 +36,15 @@ class Log {
     developer.log('', name: 'Logcat');
     stackTrace != null
         ? developer.log(
-            tag + ': ',
+      '$tag: ',
             name: 'Warning',
-            error: '\n' + message + '\n\n---',
+            error: '\n$message\n\n---',
             stackTrace: stackTrace,
           )
         : developer.log(
-            tag + ': ',
+      '$tag: ',
             name: 'Warning',
-            error: '\n' + message + '\n\n---',
+            error: '\n$message\n\n---',
           );
   }
 
@@ -52,29 +52,32 @@ class Log {
     developer.log('', name: 'Logcat');
     stackTrace != null
         ? developer.log(
-            tag + ': ',
+      '$tag: ',
             name: 'Error',
-            error: '\n' + message + '\n\n---',
+            error: '\n$message\n\n---',
             stackTrace: stackTrace,
           )
         : developer.log(
-            tag + ': ',
+      '$tag: ',
             name: 'Error',
-            error: '\nWARNING: You\'re not providing stacktrace results!\n'
-                    'WARNING: Error log is useless without stacktrace.\n'
-                    'WARNING: Use Log.i, Log.d or Log.w instead!\n\n'
-                    'How to get stacktrace?\n'
-                    '====================[EXAMPLE]====================\n'
-                    'static const tag = \'main.dart: class _HomeState\';\n'
-                    '...\n'
-                    'try {\n'
-                    '\t...\n'
-                    '} catch (error, stackTrace) {\n'
-                    '\tLog.e(tag, \'\$error\', stackTrace: stackTrace);'
-                    '\n}\n'
-                    '=================================================\n\n' +
-                message +
-                '\n\n---',
+            error: '\nWARNING: You\'re not providing stacktrace results!'
+                '\n       : Error log is useless without stacktrace.'
+                '\n       : Use Log.i, Log.d or Log.w instead!'
+                '\n'
+                '\nHow to get stacktrace?'
+                '\n====================[EXAMPLE]===================='
+                '\nstatic const tag = \'main.dart: class _HomeState\';'
+                '\n...'
+                '\ntry {'
+                '\n\t...'
+                '\n} catch (error, stackTrace) {'
+                '\n\tLog.e(tag, \'\$error\', stackTrace: stackTrace);'
+                '\n}'
+                '\n================================================='
+                '\n'
+                '\n$message'
+                '\n'
+                '\n---',
           );
   }
 }
